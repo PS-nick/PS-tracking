@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Technician or engineer profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "email": { "type": "string", "description": "User email address" },
+        "displayName": { "type": "string", "description": "Display name" },
+        "role": { "type": "string", "enum": ["technician", "lead_engineer", "qa_inspector", "admin"], "description": "Depot role" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" }
+      },
+      "required": ["uid", "email"]
+    },
+    "ServiceUnit": {
+      "title": "ServiceUnit",
+      "description": "Motorsport component tracking unit through the 16-stage overhaul process",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique unit identifier" },
+        "serialNumber": { "type": "string", "description": "Component serial number" },
+        "workOrderNumber": { "type": "string", "description": "Work order code" },
+        "partNumber": { "type": "string", "description": "Part number" },
+        "modelName": { "type": "string", "description": "Assembly model name" },
+        "customerName": { "type": "string", "description": "Customer racing constructor" },
+        "customerUnitDesignation": { "type": "string", "description": "Internal asset code" },
+        "expectedDeliveryDate": { "type": "string", "description": "Target delivery SLA deadline" },
+        "currentStepId": { "type": "string", "description": "Current process step identifier" },
+        "overallStatus": { "type": "string", "enum": ["in_progress", "completed", "quarantined"], "description": "Current overall status" },
+        "priority": { "type": "string", "enum": ["emergency", "high", "medium", "low"], "description": "Priority queue rating" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" },
+        "userId": { "type": "string", "description": "UID of authoring or logged technician" }
+      },
+      "required": ["id", "serialNumber", "workOrderNumber"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "User" },
+      "description": "User profile collection"
+    },
+    "/serviceUnits/{unitId}": {
+      "schema": { "$ref": "ServiceUnit" },
+      "description": "Active and archived motorsport component service units"
+    }
+  }
+}

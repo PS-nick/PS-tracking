@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+
+  body {
+    background-color: #0c0e12;
+    color: #f1f3f7;
+    min-height: 100vh;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100%;
+  }
+
+  #root {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100%;
+  }
+
+  code, kbd, samp, pre {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Custom scrollbars for high-density industrial workshop tables & media reels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #12151c;
+}
+::-webkit-scrollbar-thumb {
+  background: #28303f;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b465c;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0; /* Suppresses browser-generated headers (title/date) and footers (URL/page numbers) */
+  }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body, html {
+    background: white !important;
+    color: black !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 6mm 8mm !important;
+    overflow: visible !important;
+  }
+  .no-print,
+  .print-hidden,
+  .print\:hidden,
+  footer,
+  [role="contentinfo"],
+  .app-footer,
+  .site-footer,
+  .running-footer,
+  .document-footer,
+  .legal-footer,
+  .sheet-footer,
+  .modal-footer,
+  .card-footer,
+  .report-footer,
+  .print-footer,
+  [class*="footer"],
+  tfoot {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Universal Document Print Table Layout - Never Break Tables */
+  table {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+  tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  th, td {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  thead {
+    display: table-header-group !important;
+  }
+  tfoot {
+    display: none !important;
+  }
+
+  /* Prevent overflow clipping that breaks tables across printed pages */
+  .overflow-hidden, .overflow-x-auto, .overflow-y-auto {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  /* When printing while a report or sheet modal is open, hide the background dashboard/workflow app and its footer */
+  body:has(.printable-report) #root > div > main,
+  body:has(.printable-report) #root > div > header,
+  body:has(.printable-report) #root > div > footer,
+  body:has(.printable-report) #root > div > div.bg-neutral-900,
+  body:has(.printable-sheet) #root > div > main,
+  body:has(.printable-sheet) #root > div > header,
+  body:has(.printable-sheet) #root > div > footer,
+  body:has(.printable-sheet) #root > div > div.bg-neutral-900 {
+    display: none !important;
+  }
+
+  /* Ensure modal backdrop and scroll wrappers become unconstrained white pages */
+  .fixed.inset-0.z-50 {
+    position: static !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .fixed.inset-0.z-50 > div {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .printable-report {
+    max-width: 100% !important;
+    width: 100% !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    padding: 10px 12px !important;
+    margin: 0 auto !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  .printable-sheet {
+    max-width: 100% !important;
+    width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+}
+

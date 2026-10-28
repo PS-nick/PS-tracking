@@ -1,0 +1,6 @@
+{
+  "summary":  "Implementation plan for email-only technician login, customer password authentication, heat exchanger medium type selector (water-to-oil, oil-to-oil, water-to-air), watermark boundary sizing, removal of core matrix specs from fin straightening, guest portal view isolation, and removal of FIA homologation references.",
+  "updatedAt":  "2026-10-28T09:32:39.580580899Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

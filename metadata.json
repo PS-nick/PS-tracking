@@ -1,0 +1,6 @@
+{
+  "name": "ProTrace SOP - Unit Service & Overhaul Workflow",
+  "description": "Industrial unit service tracking system with intake sheet, service assessment, flow and pressure testing, cleaning analysis, timed flush, oven, fin straightening alerts, and digital sign-off.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
